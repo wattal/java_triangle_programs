@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class scannerclassfile {
+
+	public static void main(String[] args) {
+		
+		System.out.println("What sized triangle u want : " );
+		Scanner sc = new Scanner(System.in);
+		int triangleHeight = sc.nextInt();
+		
+		for(int row=1; row<triangleHeight+1; row++){
+			for(int j=triangleHeight; j>=1; j--){
+				if(j>row) 
+					System.out.print("  ");
+				else
+					System.out.print("*");
+			}
+			System.out.println();
+		}
+	
+		for(int row2=1; row2<triangleHeight; row2++){
+			for(int col2=1; col2<=triangleHeight; col2++){
+				if(row2<col2) 
+					System.out.print("*");
+				else
+					System.out.print("  ");			
+				sc.close();
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+What sized triangle u want : 
+24
+                                              *
+                                            **
+                                          ***
+                                        ****
+                                      *****
+                                    ******
+                                  *******
+                                ********
+                              *********
+                            **********
+                          ***********
+                        ************
+                      *************
+                    **************
+                  ***************
+                ****************
+              *****************
+            ******************
+          *******************
+        ********************
+      *********************
+    **********************
+  ***********************
+************************
+  ***********************
+    **********************
+      *********************
+        ********************
+          *******************
+            ******************
+              *****************
+                ****************
+                  ***************
+                    **************
+                      *************
+                        ************
+                          ***********
+                            **********
+                              *********
+                                ********
+                                  *******
+                                    ******
+                                      *****
+                                        ****
+                                          ***
+                                            **
+                                              *
