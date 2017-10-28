@@ -1,0 +1,62 @@
+Rolling_Ball_Fixed Coordinates_Solution_1
+
+import java.io.FileInputStream;
+import java.util.Scanner;
+
+class Rolling_Ball	{
+	static int T;
+	static int array[][];
+	
+	static int current_val;
+	static int previous_val;
+	static int distance;
+
+	static int[] dx = {0,0,1,-1};
+	static int[] dy = {1,-1,0,0};
+	public static String fileName = "D:\\Software_Competency\\Problems\\Rolling_Ball\\rolling_ball_input.txt";
+	public static void main(String args[]) throws Exception{
+		System.setIn(new FileInputStream(fileName));
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+
+		for(int tc=1; tc<=T; tc++)	{
+			int N = sc.nextInt();
+			array = new int[N][N];
+			
+			for(int i=0; i<N; i++)	{
+				for(int j=0; j<N; j++{
+					array[i][j] = sc.nextInt();
+				}
+			}
+
+			distance = 0;
+			findRollingDistance(sc.nextInt(), sc.nextInt());
+			System.out.println("#" + tc + " " + distance);
+		}
+	}
+
+	private static void findRollingDistance(int start_x, int start_y)	{
+		current_val = array[start_x][start_y];
+		int current_x = start_x;
+		int current_y = start_y;
+
+		for(int i=0; i<4; i++){
+			int x = start_x + dx[i];
+			int y = start_y + dy[i];
+
+			if(x>=0 && y>=0 && x<array.length && y<array.length){
+				if(array[x][y] < current_val){
+					current_val = array[x][y]; 
+					current_x = x; 
+					current_y = y;
+				}
+			}
+		}
+
+		if(current_val != previous_val && ( current_x != start_x || current_y != start_y)){
+			distance++;
+			previous_val = current_val;
+			findRollingDistance(current_x, current_y);
+		}
+	}
+}
